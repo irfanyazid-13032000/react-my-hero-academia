@@ -1,0 +1,17 @@
+/* Add this to your CSS file or include it in your component's styles */
+.scrolling-gallery {
+  white-space: nowrap;
+}
+
+.scrolling-gallery img {
+  width: 135px;
+  display: inline-block;
+  margin-right: 10px; /* Adjust as needed for spacing between images */
+}
+
+.gallery{
+  /* background-color: black; */
+  overflow-x: hidden;
+}
+
+
