@@ -26,19 +26,59 @@ export default function TodoListRedux() {
   // console.log(members);
   return (
     <div>
-      <form>
-        <input type="text" id="inputMember" />
-        <button onClick={menSubmit} type="submit">click</button>
-      </form>
-      <ul>
-        {members.map((member)=>(
-          <div key={member.time}>
-            <input type="checkbox" onClick={mencoret} id="mengecekCoret" data-time={member.time} />
-            <li style={{textDecoration: member.coret ? 'line-through':'none'}}>{member.nilai} {member.time} {member.coret}</li>
-            <button onClick={()=>{dispatch(hapus(member.time))}}>delete</button>
+  <div className="container py-5 h-100">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col col-lg-9 col-xl-7">
+        <div className="card rounded-3">
+          <div className="card-body p-4">
+
+            <h4 className="text-center my-3 pb-3">Aplikasi yang harus dilakukan</h4>
+
+            <form className="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+              <div className="col-12">
+                <div className="form-outline">
+                  <input type="text" id="inputMember" className="form-control" />
+                </div>
+              </div>
+
+              <div className="col-12">
+                <button type="submit" className="btn btn-primary" onClick={menSubmit}>Save</button>
+              </div>
+
+            </form>
+
+            <table className="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Todo item</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {members.map((member)=>(
+                  <tr key={member.time}>
+                    <th scope="row">{member.time}</th>
+                    <td style={{textDecoration: member.coret ? 'line-through':'none'}}>{member.nilai}</td>
+                    <td>
+                      <button type="submit" className="btn btn-danger" onClick={()=>{dispatch(hapus(member.time))}}>Delete</button>
+                      <input type="checkbox" className="form-check-input ms-4 mt-2" onClick={mencoret} id="mengecekCoret" data-time={member.time}/>
+                    </td>
+                  </tr>
+                
+
+                ))}
+                
+              </tbody>
+            </table>
+
           </div>
-        ))}
-      </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      
     </div>
   )
 }

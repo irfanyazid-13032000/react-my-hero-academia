@@ -15,11 +15,6 @@ export const todoSlice = createSlice({
       state.isiArray = state.isiArray.filter((isi)=>isi.time !== action.payload)
     },
     coretin:(state,action)=>{
-      // console.log(state.isiArray);
-      // console.log(action.payload);
-      // state.isiArray.map((isi)=>{
-      //   console.log(isi.time == action.payload);
-      // })
       state.isiArray = state.isiArray.map((isi)=>{
         return isi.time == action.payload ? {...isi,coret: !isi.coret} : isi
       })
