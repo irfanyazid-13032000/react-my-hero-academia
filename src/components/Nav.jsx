@@ -1,3 +1,4 @@
+import { Link,Outlet } from "react-router-dom";
 export const Nav = () => {
   return (
     <div>
@@ -10,14 +11,12 @@ export const Nav = () => {
         <div className="collapse navbar-collapse" id="navbarText">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">Home</a>
+              <Link className="nav-link active" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Heroes</a>
+              <Link className="nav-link" to="/login">Heroes</Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
-            </li>
+           
           </ul>
           <span className="navbar-text">
             All might
@@ -25,6 +24,7 @@ export const Nav = () => {
         </div>
       </div>
     </nav>
+    <Outlet></Outlet>
     </div>
   )
 }
